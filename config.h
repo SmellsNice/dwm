@@ -16,7 +16,7 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "monospace:size=10", "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"  };
+static char *fonts[]          = { "monospace:size=12", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"  };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
@@ -144,7 +144,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_quotedbl,   spawn,	               {.v = (const char*[]){ "dmenuhandler", NULL } } },
 	{ MODKEY|ShiftMask,		XK_quotedbl,   spawn,	               {.v = (const char*[]){ "dmenuunicode", NULL } } },
 	{ MODKEY,			XK_asterisk,   spawn,                  SHCMD("clipmenu -i -l 34") },
-	{ MODKEY|ShiftMask,		XK_asterisk,   spawn,	               {.v = (const char*[]){ "bookmarkthis", NULL } } },
+	{ MODKEY|ShiftMask,		XK_asterisk,   spawn,	               {.v = (const char*[]){ "dmenuscreen", NULL } } },
 	{ MODKEY,			XK_minus,      spawn,	               {.v = (const char*[]){ "ybrowser", NULL } } },
 	{ MODKEY|ShiftMask,		XK_minus,      spawn,                  SHCMD("sudo -A /home/smellsnice/.local/bin/dmenuvpn") },
 	TAGKEYS(			XK_1,          0)
@@ -244,6 +244,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_Page_Down,  shiftview,              { .i = +1 } },
 	{ MODKEY|ShiftMask,		XK_Page_Down,  shifttag,               { .i = +1 } },
 	{ MODKEY,			XK_Insert,     spawn,                  SHCMD("xdotool type --delay 0 $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 34 | cut -d' ' -f1)") },
+	{ MODKEY|ShiftMask,		XK_Insert,     spawn,	               {.v = (const char*[]){ "bookmarkthis", NULL } } },
 
 	{ MODKEY,			XK_F1,         spawn,                  {.v = (const char*[]){ "tutorialvids", NULL } } },
 	{ MODKEY,			XK_F2,         xrdb,                   {.v = NULL } },
